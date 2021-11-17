@@ -9,15 +9,16 @@ let professionInput = document.querySelector('.popup__input_type_profession');
 
 function popupOpen(){
     popup.classList.add('popup_visible');
-    nameInput.placeholder = name.textContent;
-    professionInput.placeholder = profession.textContent;
+    nameInput.value = name.textContent;
+    professionInput.value = profession.textContent;
 }
 
 function popupClose(){
     popup.classList.remove('popup_visible');
 }
 
-function formSubmitHandler(){
+function formSubmitHandler(evt){
+    evt.preventDefault();
     name.textContent = nameInput.value;
     profession.textContent = professionInput.value;
     popupClose();
@@ -26,7 +27,7 @@ function formSubmitHandler(){
 editButton.addEventListener('click', popupOpen);
 closedButton.addEventListener('click', popupClose);
 buttonSave.addEventListener('click', formSubmitHandler);
-evt.preventDefault();
+
 
 
 

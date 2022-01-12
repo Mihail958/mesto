@@ -24,56 +24,13 @@
                     <button type="button" class="profile__button-add button"></button>
                 </section>
                 <section>
-                    <ul class="elements">
-                        <li class="element">
-                            <img class="element__img" src="./images/karachaevsk.jpg" alt="изображение">
-                            <div class="element__card-conteiner">
-                                <h2 class="element__card-header">Карачаевск</h2>
-                                <button type="button" class="element__like element__like_active button" title="Оценить фото"></button>
-                            </div>
-                        </li>
-                        <li class="element">
-                            <img class="element__img" src="./images/karachaevsk.jpg" alt="изображение">
-                            <div class="element__card-conteiner">
-                                <h2 class="element__card-header">Карачаевск</h2>
-                                <button type="button" class="element__like button" title="Оценить фото"></button>
-                            </div>
-                        </li>
-                        <li class="element">
-                            <img class="element__img" src="./images/karachaevsk.jpg" alt="изображение">
-                            <div class="element__card-conteiner">
-                                <h2 class="element__card-header">Карачаевск</h2>
-                                <button type="button" class="element__like button" title="Оценить фото"></button>
-                            </div>
-                        </li>
-                        <li class="element">
-                            <img class="element__img" src="./images/karachaevsk.jpg" alt="изображение">
-                            <div class="element__card-conteiner">
-                                <h2 class="element__card-header">Карачаевск</h2>
-                                <button type="button" class="element__like button" title="Оценить фото"></button>
-                            </div>
-                        </li>
-                        <li class="element">
-                            <img class="element__img" src="./images/karachaevsk.jpg" alt="изображение">
-                            <div class="element__card-conteiner">
-                                <h2 class="element__card-header">Карачаевск</h2>
-                                <button type="button" class="element__like button" title="Оценить фото"></button>
-                            </div>
-                        </li>
-                        <li class="element">
-                            <img class="element__img" src="./images/karachaevsk.jpg" alt="изображение">
-                            <div class="element__card-conteiner">
-                                <h2 class="element__card-header">Карачаевск</h2>
-                                <button type="button" class="element__like button" title="Оценить фото"></button>
-                            </div>
-                        </li>
-                    </ul>
+                    <ul class="elements"></ul>
                 </section>
             </main>
             <footer class="footer">
                 <p class="footer__text">&copy;2021 Mesto Russia</p>
             </footer>
-            <div class="popup" id="popup">
+            <div class="popup popup__profile-edit" id="popup">
                 <div class="popup__container">
                     <h2 class="popup__header">Редактировать профиль</h2>
                     <form class="popup__form">
@@ -81,10 +38,38 @@
                         <input class="popup__input popup__input_type_profession" autocomplete="on" placeholder="Род деятельности">
                         <button type="button" class="popup__save button" id="save">Сохранить</button>
                     </form>
-                    <button type="button" class="popup__closed button" id="popup__closed"></button>
+                    <button type="button" class="popup__closed popup__closed_profile-edit button" id="popup__closed"></button>
+                </div>
+            </div>
+            <div class="popup popup__add-cards" id="popup">
+                <div class="popup__container">
+                    <h2 class="popup__header">Новое место</h2>
+                    <form class="popup__form">
+                        <input class="popup__input popup__input_type_card-name" autocomplete="on" placeholder="Название">
+                        <input class="popup__input popup__input_type_card-link" autocomplete="on" placeholder="Сcылка на картинку">
+                        <button type="button" class="popup__create-card button" id="save">Создать</button>
+                    </form>
+                    <button type="button" class="popup__closed popup__closed_add-cards button" id="popup__closed"></button>
+                </div>
+            </div>
+            <div class="popup popup_type_image" id="popup">
+                <div class="popup__image-container">
+                    <img class="popupe__image" src="" alt="изображение">
+                    <p class="popup__image-caption"></p>
+                    <button type="button" class="popup__closed popup_type_image__closed" id="popup__closed"></button>
                 </div>
             </div>
         </div>
+        <template class="class-template">
+            <li class="element">
+                <img class="element__img" src="" alt="изображение">
+                <img src="./images/delete.png"  type="button" class="element__delete button" title="Удалить">
+                <div class="element__card-conteiner">
+                    <h2 class="element__card-header"></h2>
+                    <button type="button" class="element__like button" title="Оценить фото"></button>
+                </div>
+            </li>
+        </template>
         <script src="./script/script.js"></script>
     </body>
 </html>

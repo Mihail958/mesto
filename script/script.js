@@ -74,15 +74,15 @@ function createCard(cardData){
   cardHeader.textContent = cardData.name;
   cardImage.src = cardData.link;
   cardImage.alt = "Фотокарточка";
-  //cardlist.prepend(cardElement);
-  popupImage.src = cardData.link;
-  popupImage.alt = "Фотокарточка";
-  popupImageCaption.textContent = cardData.name;
 
   deleteButton.addEventListener('click', deleteCard);
   addLikeButton.addEventListener('click', addlike);
-  cardImage.addEventListener('click', function()
-  {togglePopup(popupOpenImage)});
+  cardImage.addEventListener('click', function(){
+    popupImage.src = cardData.link;
+    popupImage.alt = "Фотокарточка";
+    popupImageCaption.textContent = cardData.name;
+    togglePopup(popupOpenImage)
+  });
 
   return cardElement;
 }
@@ -92,12 +92,11 @@ function renderCard(cardData){
   cardlist.prepend(card);
 }
 
-initialCards.forEach(createCard);
+initialCards.forEach(renderCard);
+
 
 function togglePopup (modal){
   modal.classList.toggle('popup_visible');
-  nameInput.value = name.textContent;
-  professionInput.value = profession.textContent;
 }
 
 

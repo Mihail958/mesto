@@ -4,4 +4,7 @@
     border-radius: 10px;
     padding-bottom: 31px;
     position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
 }

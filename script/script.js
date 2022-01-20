@@ -39,6 +39,10 @@ const cardLinkImput = document.querySelector('.popup__input_type_card-link');
 const popupImage = document.querySelector('.popup__open-image');
 const popupImageCaption = document.querySelector('.popup__image-caption');
 
+nameInput.value = name.textContent;
+professionInput.value = profession.textContent;
+
+
 // Попапы
 const popupProfileEdit= document.querySelector('.popup_type_profile-edit');
 const popupAddCard = document.querySelector('.popup_type_add-cards');
@@ -98,6 +102,7 @@ initialCards.forEach(renderCard);
 function togglePopup (modal){
   modal.classList.toggle('popup_visible');
 }
+
 
 
 // события

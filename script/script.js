@@ -39,8 +39,8 @@ const cardLinkImput = document.querySelector('.popup__input_type_card-link');
 const popupImage = document.querySelector('.popup__open-image');
 const popupImageCaption = document.querySelector('.popup__image-caption');
 
-nameInput.value = name.textContent;
-professionInput.value = profession.textContent;
+//nameInput.value = name.textContent;
+//professionInput.value = profession.textContent;
 
 
 // Попапы
@@ -101,9 +101,14 @@ initialCards.forEach(renderCard);
 
 function togglePopup (modal){
   modal.classList.toggle('popup_visible');
+  //nameInput.value = name.textContent;
+  //professionInput.value = profession.textContent;
 }
 
-
+function fillProfileEdit() {
+  nameInput.value = name.textContent;
+  professionInput.value = profession.textContent;
+}
 
 // события
 editButton.addEventListener('click', function() 
@@ -115,6 +120,7 @@ popupProfileEdit.addEventListener('submit', (event) =>{
   name.textContent = nameInput.value;
   profession.textContent = professionInput.value;
   togglePopup(popupProfileEdit);
+  fillProfileEdit();
 });
 
 addCardButton.addEventListener('click', function() 

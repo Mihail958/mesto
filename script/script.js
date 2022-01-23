@@ -39,9 +39,6 @@ const cardLinkImput = document.querySelector('.popup__input_type_card-link');
 const popupImage = document.querySelector('.popup__open-image');
 const popupImageCaption = document.querySelector('.popup__image-caption');
 
-//nameInput.value = name.textContent;
-//professionInput.value = profession.textContent;
-
 
 // Попапы
 const popupProfileEdit= document.querySelector('.popup_type_profile-edit');
@@ -101,18 +98,13 @@ initialCards.forEach(renderCard);
 
 function togglePopup (modal){
   modal.classList.toggle('popup_visible');
-  //nameInput.value = name.textContent;
-  //professionInput.value = profession.textContent;
-}
-
-function fillProfileEdit() {
-  nameInput.value = name.textContent;
-  professionInput.value = profession.textContent;
 }
 
 // события
-editButton.addEventListener('click', function() 
-  {togglePopup(popupProfileEdit)
+editButton.addEventListener('click', () => {
+  nameInput.value = name.textContent;
+  professionInput.value = profession.textContent;
+  togglePopup(popupProfileEdit);
 });
 
 popupProfileEdit.addEventListener('submit', (event) =>{
@@ -120,7 +112,6 @@ popupProfileEdit.addEventListener('submit', (event) =>{
   name.textContent = nameInput.value;
   profession.textContent = professionInput.value;
   togglePopup(popupProfileEdit);
-  fillProfileEdit();
 });
 
 addCardButton.addEventListener('click', function() 
@@ -143,7 +134,6 @@ popupAddCard.addEventListener('submit', (event) => {
     name: cardNameValue,
     link: cardLinkValue
 }
-  //createCard(obj);
   renderCard(obj);
   togglePopup(popupAddCard);
   cardNameImput.value = "";

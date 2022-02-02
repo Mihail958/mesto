@@ -100,6 +100,52 @@ function togglePopup (modal){
   modal.classList.toggle('popup_visible');
 }
 
+function popupProfilSave(){
+  event.preventDefault();
+  name.textContent = nameInput.value;
+  profession.textContent = professionInput.value;
+  togglePopup(popupProfileEdit);
+}
+
+function addCardSave(){
+  event.preventDefault();
+  const cardNameValue = cardNameImput.value;
+  const cardLinkValue = cardLinkImput.value;
+  const obj = {
+    name: cardNameValue,
+    link: cardLinkValue
+}
+  renderCard(obj);
+  togglePopup(popupAddCard);
+  cardNameImput.value = "";
+  cardLinkImput.value = "";
+}
+
+function profileKeyHandler(evt) {
+  if (evt.key === 'Enter') {
+    popupProfilSave();
+  }
+}
+
+function addCardKeyHandler(evt) {
+  if (evt.key === 'Enter') {
+    addCardSave();
+  }
+}
+
+function closePopupByClickOverlay(e) {
+  if (e.target.classList.contains('popup')){
+    e.target.closest('.popup').classList.remove('popup_visible');
+  }  
+};
+
+function closePopupByEscape(evt) {
+  if(evt.key === 'Escape') {
+    document.querySelector('.popup_visible').classList.remove('popup_visible');
+    console.log('проверка кгопки Escape')
+  }
+};
+
 // события
 editButton.addEventListener('click', () => {
   nameInput.value = name.textContent;
@@ -108,10 +154,7 @@ editButton.addEventListener('click', () => {
 });
 
 popupProfileEdit.addEventListener('submit', (event) =>{
-  event.preventDefault();
-  name.textContent = nameInput.value;
-  profession.textContent = professionInput.value;
-  togglePopup(popupProfileEdit);
+  popupProfilSave();
 });
 
 addCardButton.addEventListener('click', function() 
@@ -127,24 +170,22 @@ closedButtonPopupAddCards.addEventListener('click', function()
 });
 
 popupAddCard.addEventListener('submit', (event) => {
-  event.preventDefault();
-  const cardNameValue = cardNameImput.value;
-  const cardLinkValue = cardLinkImput.value;
-  const obj = {
-    name: cardNameValue,
-    link: cardLinkValue
-}
-  renderCard(obj);
-  togglePopup(popupAddCard);
-  cardNameImput.value = "";
-  cardLinkImput.value = "";
+  addCardSave();
 });
+
+nameInput.addEventListener('keydown', profileKeyHandler);
+professionInput.addEventListener('keydown', profileKeyHandler);
+cardNameImput.addEventListener('keydown', addCardKeyHandler);
+cardLinkImput.addEventListener('keydown', addCardKeyHandler);
 
 closedButtonPopupOpenImage.addEventListener('click',  function()
   {togglePopup(popupOpenImage)
 });
 
-
+popupProfileEdit.addEventListener('click', closePopupByClickOverlay);
+popupAddCard.addEventListener('click', closePopupByClickOverlay);
+popupOpenImage.addEventListener('click', closePopupByClickOverlay);
+document.addEventListener('keydown', closePopupByEscape);
 
 
 

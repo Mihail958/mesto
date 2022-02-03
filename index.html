@@ -47,7 +47,7 @@
                 <div class="popup__container">
                     <h2 class="popup__header">Новое место</h2>
                     <form class="popup__form" novalidate>
-                        <input class="popup__input popup__input_type_card-name" id="card-name-input"  autocomplete="on" placeholder="Название" required>
+                        <input class="popup__input popup__input_type_card-name" id="card-name-input"  autocomplete="on" placeholder="Название" required minlength="2" maxlength="30">
                         <span class="popup__error" id="error-card-name-input"></span>
                         <input class="popup__input popup__input_type_card-link" id="card-link-input"autocomplete="on" placeholder="Сcылка на картинку" required type="url">
                         <span class="popup__error" id="error-card-link-input"></span>
@@ -66,7 +66,7 @@
         </div>
         <template class="class-template">
             <li class="element">
-                <img class="element__img" alt="изображение">
+                <img class="element__img">
                 <img src="./images/delete.png"  type="button" class="element__delete button" title="Удалить">
                 <div class="element__card-conteiner">
                     <h2 class="element__card-header"></h2>

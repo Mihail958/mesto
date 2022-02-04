@@ -1,4 +1,4 @@
-function submitForm(event){
+function submitForm(event, form, classes){
     event.preventDefault();
 }
 
@@ -17,7 +17,6 @@ function hideError(input, errorContainer, {inputErrorClass, errorvisibleClass}) 
 function toggleButton(form, {submitButtonSelector, inactiveButtonClass}) {
     const button = form.querySelector(submitButtonSelector);
     const isFormValid = form.checkValidity();
-    console.log('isFormValid');
     
     if (isFormValid) {
         button.classList.remove(inactiveButtonClass);

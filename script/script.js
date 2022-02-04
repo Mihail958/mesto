@@ -84,13 +84,7 @@ function createCard(cardData){
     openPopup(popupOpenImage);
   });
 
-  disabledCreateCardButton();
   return cardElement;
-}
-
-function disabledCreateCardButton() {
-  createCardButton.setAttribute('disabled', '');
-  createCardButton.classList.add('popup__button_disabled');
 }
 
 function renderCard(cardData){
@@ -102,10 +96,12 @@ initialCards.forEach(renderCard);
 
 function openPopup (modal) {
   modal.classList.add('popup_visible');
+  document.addEventListener('keydown', closePopupByEscapeAndByClickOverlay);
 }
 
 function closePopup(modal) {
   modal.classList.remove('popup_visible');
+  document.removeEventListener('keydown', closePopupByEscapeAndByClickOverlay);
 }
 
 function popupProfilSave(){
@@ -129,18 +125,16 @@ function addCardSave(){
   cardLinkImput.value = "";
 }
 
-function closePopupByClickOverlay(e) {
-  if (e.target.classList.contains('popup')){
-    e.target.closest('.popup').classList.remove('popup_visible');
-  }  
-};
 
-function closePopupByEscape(evt) {
+function closePopupByEscapeAndByClickOverlay(evt) {
+  const popupOpen = document.querySelector('.popup_visible');
   if(evt.key === 'Escape') {
-    const popupOpen = document.querySelector('.popup_visible');
-    closePopup(popupOpen);
+     closePopup(popupOpen);
   }
-};
+  if (evt.target.classList.contains('popup')){
+    closePopup(popupOpen);
+  }     
+}
 
 // события
 editButton.addEventListener('click', () => {
@@ -153,8 +147,8 @@ popupProfileEdit.addEventListener('submit', (event) =>{
   popupProfilSave();
 });
 
-addCardButton.addEventListener('click', function() 
-{openPopup(popupAddCard)
+addCardButton.addEventListener('click', function() {
+  openPopup(popupAddCard);
 });
 
 closedButtonPopupProfileEdit.addEventListener('click', function()
@@ -167,16 +161,18 @@ closedButtonPopupAddCards.addEventListener('click', function()
 
 popupAddCard.addEventListener('submit', (event) => {
   addCardSave();
+  createCardButton.setAttribute('disabled', '');
+  createCardButton.classList.add('popup__button_disabled');
 });
 
 closedButtonPopupOpenImage.addEventListener('click',  function()
   {closePopup(popupOpenImage)
 });
 
-popupProfileEdit.addEventListener('click', closePopupByClickOverlay);
-popupAddCard.addEventListener('click', closePopupByClickOverlay);
-popupOpenImage.addEventListener('click', closePopupByClickOverlay);
-document.addEventListener('keydown', closePopupByEscape);
+popupProfileEdit.addEventListener('click', closePopupByEscapeAndByClickOverlay);
+popupAddCard.addEventListener('click', closePopupByEscapeAndByClickOverlay);
+popupOpenImage.addEventListener('click', closePopupByEscapeAndByClickOverlay);
+
 
 
 

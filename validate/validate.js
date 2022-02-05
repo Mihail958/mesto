@@ -14,16 +14,24 @@ function hideError(input, errorContainer, {inputErrorClass, errorvisibleClass}) 
     errorContainer.textContent = '';
 }
 
+function enableSubmitButton(button, inactiveButtonClass) {
+    button.classList.remove(inactiveButtonClass);
+    button.removeAttribute('disabled'); 
+}
+
+function  disableSubmitButton(button, inactiveButtonClass) {
+    button.classList.add(inactiveButtonClass);
+    button.setAttribute('disabled', '');
+}
+
 function toggleButton(form, {submitButtonSelector, inactiveButtonClass}) {
     const button = form.querySelector(submitButtonSelector);
     const isFormValid = form.checkValidity();
     
     if (isFormValid) {
-        button.classList.remove(inactiveButtonClass);
-        button.removeAttribute('disabled');
+        enableSubmitButton(button, inactiveButtonClass);
     } else {
-        button.classList.add(inactiveButtonClass);
-        button.setAttribute('disabled', '');
+        disableSubmitButton(button, inactiveButtonClass);
     }
 }
 

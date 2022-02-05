@@ -39,6 +39,16 @@ const cardLinkImput = document.querySelector('.popup__input_type_card-link');
 const popupImage = document.querySelector('.popup__open-image');
 const popupImageCaption = document.querySelector('.popup__image-caption');
 
+const validationSettings = {
+  formSelector: '.popup__form',
+  inputSelector: '.popup__input',
+  errorSelector: '.popup__error',
+  inputErrorClass: 'popup__input_type_error',
+  errorvisibleClass: 'popup__error_visible',
+  inactiveButtonClass: 'popup__button_disabled',
+  submitButtonSelector: '.popup__button',
+}
+enableValidation(validationSettings);
 
 // Попапы
 const popupProfileEdit= document.querySelector('.popup_type_profile-edit');
@@ -111,6 +121,7 @@ function popupProfilSave(){
   closePopup(popupProfileEdit);
 }
 
+
 function addCardSave(){
   event.preventDefault();
   const cardNameValue = cardNameImput.value;
@@ -121,6 +132,7 @@ function addCardSave(){
 }
   renderCard(obj);
   closePopup(popupAddCard);
+  disableSubmitButton(createCardButton, validationSettings.inactiveButtonClass);
   cardNameImput.value = "";
   cardLinkImput.value = "";
 }
@@ -161,8 +173,6 @@ closedButtonPopupAddCards.addEventListener('click', function()
 
 popupAddCard.addEventListener('submit', (event) => {
   addCardSave();
-  createCardButton.setAttribute('disabled', '');
-  createCardButton.classList.add('popup__button_disabled');
 });
 
 closedButtonPopupOpenImage.addEventListener('click',  function()

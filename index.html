@@ -33,7 +33,7 @@
             <div class="popup popup_type_profile-edit">
                 <div class="popup__container">
                     <h2 class="popup__header">Редактировать профиль</h2>
-                    <form class="popup__form" novalidate>
+                    <form class="popup__form form_type_edit" novalidate>
                         <input class="popup__input popup__input_type_name" id="name-input"autocomplete="on" placeholder="Имя пользователя" required minlength="2" maxlength="20">
                         <span class="popup__error" id="error-name-input"></span>
                         <input class="popup__input popup__input_type_profession" id="profession-input"  placeholder="Род деятельности" required minlength="2" maxlength="200">
@@ -46,7 +46,7 @@
             <div class="popup popup_type_add-cards">
                 <div class="popup__container">
                     <h2 class="popup__header">Новое место</h2>
-                    <form class="popup__form" novalidate>
+                    <form class="popup__form form_type_add-card" novalidate>
                         <input class="popup__input popup__input_type_card-name" id="card-name-input"  autocomplete="on" placeholder="Название" required minlength="2" maxlength="30">
                         <span class="popup__error" id="error-card-name-input"></span>
                         <input class="popup__input popup__input_type_card-link" id="card-link-input"autocomplete="on" placeholder="Сcылка на картинку" required type="url">
@@ -64,7 +64,7 @@
                 </div>
             </div>
         </div>
-        <template class="class-template">
+        <template class="class-template" id="card-templete">
             <li class="element">
                 <img class="element__img">
                 <img src="./images/delete.png"  type="button" class="element__delete button" title="Удалить">
@@ -74,7 +74,6 @@
                 </div>
             </li>
         </template>
-        <script src="./validate/validate.js"></script>
-        <script src="./script/script.js"></script>
+        <script type="module" src="./script/index.js"></script>
     </body>
 </html>

@@ -21,8 +21,8 @@ import {Card} from './card.js';
   const cardLinkImput = document.querySelector('.popup__input_type_card-link');
   
 
-  const editForm = popupProfileEdit.querySelector('.form_type_edit');
-  const addCardForm = popupAddCard.querySelector('.form_type_add-card');
+  const editForm = popupProfileEdit.querySelector('.popup__form_type_edit');
+  const addCardForm = popupAddCard.querySelector('.popup__form_type_add-card');
   
   const editFormValidator = new formValidator(validationSettings, editForm);
   const addCardFormValidator = new formValidator(validationSettings, addCardForm);

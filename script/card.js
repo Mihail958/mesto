@@ -1,5 +1,5 @@
 import {openPopup} from './utils.js';
-import {popupOpenImage, popupImage, popupImageCaption} from './constants.js' 
+import {popupOpenImage, popupImage, popupImageCaption} from './constants.js';
 
 
 export class Card {
@@ -38,7 +38,8 @@ export class Card {
         this._cardImage.alt = this._cardData.name; 
     }
 
-    createCard = () => {
+
+    getCardElement = () => {
         // находим переменные
         this._cardElement = this._template.cloneNode(true);
         this._cardImage = this._cardElement.querySelector('.element__img');

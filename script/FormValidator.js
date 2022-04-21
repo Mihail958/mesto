@@ -5,7 +5,13 @@ export class formValidator{
         this._inputList = Array.from(this._form.querySelectorAll(this._settings.inputSelector));
         this._buttonElement = this._form.querySelector(this._settings.submitButtonSelector);
     }
-    
+    resetValidation =()=> {
+        this._disableSubmitButton(); // управляем кнопкой
+        this._inputList.forEach((inputElement) => {
+          this._hideInpuyError(inputElement) //очищаем ошибки
+        });
+      }
+
     _showImputError = (inputElement, errorMessage) => {
         const {inputErrorClass, errorvisibleClass} = this._settings;
 

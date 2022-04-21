@@ -29,22 +29,16 @@ import {Card} from './Card.js';
 
   editFormValidator.enableValidation();
   addCardFormValidator.enableValidation();
-  
+
   // кнопки 
   const editButton = document.querySelector('.profile__button-edit');
   const closedButtonPopupProfileEdit = document.querySelector('.popup__closed_type_profile-edit');
   const closedButtonPopupAddCards = document.querySelector('.popup__closed_type_add-cards');
   const closedButtonPopupOpenImage = document.querySelector('.popup__closed_type_image');
   const addCardButton = document.querySelector('.profile__button-add');
-  const createCardButton = document.querySelector('.popup__create-card');
   
   
   // функции
-  
-  function  disableSubmitButton(button, inactiveButtonClass) {
-    button.classList.add(inactiveButtonClass);
-    button.setAttribute('disabled', '');
- }
 
  function createCard(cardData) {
     const card = new Card(cardData, cardTemplateSelector); 
@@ -55,7 +49,7 @@ import {Card} from './Card.js';
   function renderCard(cardData){
     const cardElement = createCard(cardData);
     cardlist.prepend(cardElement);
-    disableSubmitButton(createCardButton, validationSettings.inactiveButtonClass);
+    addCardFormValidator.resetValidation();
   } 
   
   initialCards.forEach((cardData) => {

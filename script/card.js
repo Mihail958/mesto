@@ -3,11 +3,12 @@ import {popupOpenImage, popupImage, popupImageCaption} from './constants.js';
 
 
 export class Card {
-    constructor (cardData, cardTemplateSelector) {
+    constructor (cardData, cardTemplateSelector, handleCardClick) {
         this._cardData = cardData; 
         this.name = cardData.name; 
         this.link = cardData.link; 
-        this._template = document.querySelector(cardTemplateSelector).content.querySelector('.element'); 
+        this._template = document.querySelector(cardTemplateSelector).content.querySelector('.element');
+        this._handleCardClick = handleCardClick;
     }
 
     _addlike = () => {
@@ -23,7 +24,7 @@ export class Card {
         popupImage.alt = this._cardData.name;
         popupImageCaption.textContent = this._cardData.name;
         openPopup(popupOpenImage);
-    }
+    } 
 
     // подписки
     _setEventListners() {

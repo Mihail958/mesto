@@ -1,7 +1,3 @@
-import {openPopup} from './utils.js';
-import {popupOpenImage, popupImage, popupImageCaption} from './constants.js';
-
-
 export class Card {
     constructor (cardData, cardTemplateSelector, handleCardClick) {
         this._cardData = cardData; 
@@ -19,18 +15,15 @@ export class Card {
         this._cardElement.remove();
       }
 
-    _prviewPicture = () => {
-        popupImage.src = this._cardData.link;
-        popupImage.alt = this._cardData.name;
-        popupImageCaption.textContent = this._cardData.name;
-        openPopup(popupOpenImage);
-    } 
 
     // подписки
     _setEventListners() {
         this._deleteButton.addEventListener('click', this._deleteCard);
         this._addLikeButton.addEventListener('click', this._addlike);
-        this._cardImage.addEventListener('click', this._prviewPicture);
+        this._cardImage.addEventListener('click', () => {
+            this._handleCardClick(this._cardData.name, this._cardData.link)
+        });
+  
     }
 
     _fillCard() {

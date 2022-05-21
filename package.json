@@ -1,0 +1,35 @@
+{
+  "name": "src",
+  "version": "1.0.0",
+  "description": "Данный проект разработан мной в рамках обучения, согласно техническому заданию Яндекс практикума.\r ## Цели данной работы: \r * Знакомство с JavaScript;\r * Закрепить навык создания адаптивной страницы к различным разрешениям экрана;\r * закрепить теоретичекие знания практикой;\r * собрать портфолио для дальнейшего трудоустройства.",
+  "main": "index.js",
+  "scripts": {
+    "build": "webpack --mode production",
+    "dev": "webpack serve"
+  },
+  "author": "Mihail",
+  "license": "ISC",
+  "keywords": [],
+  "dependencies": {
+    "core-js": "^3.22.5",
+    "webpack": "^5.72.1",
+    "webpack-cli": "^4.9.2"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.17.10",
+    "@babel/preset-env": "^7.17.10",
+    "autoprefixer": "^10.4.7",
+    "babel-loader": "^8.2.5",
+    "css-loader": "^6.7.1",
+    "cssnano": "^5.1.7",
+    "html-webpack-plugin": "^5.5.0",
+    "mini-css-extract-plugin": "^2.6.0",
+    "postcss-loader": "^6.2.1",
+    "style-loader": "^3.3.1",
+    "webpack-dev-server": "^4.9.0"
+  },
+  "browserslist": "last 4 version",
+  "dependencies": {
+    "core-js": "^3.22.3"
+  }
+}

@@ -1,0 +1,17 @@
+.profile__avatar_change{
+    position: absolute;
+    width: 26px;
+    height: 26px;
+    padding-left: 47px;
+    padding-top: 47px;
+    padding-right: 47px;
+    padding-bottom: 47px;
+    opacity: 0;
+    cursor: default;
+}
+
+.profile__avatar_change:hover{
+    opacity: .8;
+    cursor: pointer;
+    background-color:black;
+}

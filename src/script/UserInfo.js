@@ -1,23 +1,23 @@
 export class UserInfo {
-    constructor(nameSelector, professionSelector) {
-        this._name = document.querySelector(nameSelector);
-        this._profession = document.querySelector(professionSelector);
-    }
+  constructor({nameInputSelector, jobInputSelector, avatarSelector}) {
+    this._name = document.querySelector(nameInputSelector);
+    this._job = document.querySelector(jobInputSelector);
+    this._avatar = document.querySelector(avatarSelector);
+  }
 
-    // возвращает объект с данными пользователя
-    getUserInfo() {
-        return {
-            name: this._name.textContent,
-            profession: this._profession.textContent
-        }
+  //возращает объект с данными пользователя
+  getUserInfo(){ 
+    return {
+      name: this._name.textContent,
+      about: this._job.textContent,
     }
+  }
 
-    //принимает новые данные пользователя и добавляет их на страницу
-    setUserInfo ({name,link}) {
-        console.log(name)
-        console.log(link)
-        this._name.textContent =  name;
-        this._profession.textContent = link;
+  //принимает данные и добавляет их на страницу
+  setUserInfo(name, about, avatar){ 
+    this._name.textContent = name;
+    this._job.textContent = about;
+    this._avatar.src = `${avatar}`;
     }
 }
 

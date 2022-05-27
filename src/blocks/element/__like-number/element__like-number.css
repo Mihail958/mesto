@@ -1,0 +1,11 @@
+.element__like-number{
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    position: relative;
+    right: 0;
+    color: black;
+    font-size: 13px;
+    line-height: 15.73px;
+}

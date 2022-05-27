@@ -1,34 +1,38 @@
 export class Popup {
-    constructor (popupSelector){
+    constructor(popupSelector){
         this._popupSelector = document.querySelector(popupSelector);
-    }
-
-    open(){
+      }
+    
+      //открытие попа
+      open(){
         this._popupSelector.classList.add('popup_visible');
-        document.addEventListener('keydown',  this._handleEscClose);
-        document.addEventListener('click',  this._closePopupByClickOverlay);
-    }
-
-    close(){
+        document.addEventListener('keydown', this._handleEscClose);
+        document.addEventListener('click', this._closePopupByClickOverlay);
+      }
+    
+      //закрытие попа
+      close(){
         this._popupSelector.classList.remove('popup_visible');
-        document.removeEventListener('click', this._closePopupByClickOverlay);
         document.removeEventListener('keydown', this._handleEscClose);
-    }
-
-    _handleEscClose = (evt) => {   
-          if(evt.key === 'Escape') {
-            this.close();
-        }     
+        document.removeEventListener('click', this._closePopupByClickOverlay);
+      }
+    
+      //закрытие попапа по эскейпу
+      _handleEscClose = (evt) => {
+        if(evt.key === 'Escape'){
+          this.close()
+        }
+      }
+    
+      //закрытие попапа по куда хочешь тыкай
+    _closePopupByClickOverlay = (e) => {
+      if(e.target.classList.contains('popup')){
+        this.close()
+      }
     }
     
-
-    _closePopupByClickOverlay = (evt) => {
-        if (evt.target.classList.contains('popup')){
-            this.close();
-        }
-    }
-
-    setEventListeners(){
-        this._popupSelector.querySelector('.popup__closed').addEventListener('click', () => this.close())
+      //слушатели попапа
+      setEventListeners(){
+        this._popupSelector.querySelector('.popup__closed').addEventListener('click', () => {this.close()})
       }
 }

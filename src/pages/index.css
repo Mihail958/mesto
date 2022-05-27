@@ -23,6 +23,7 @@
 @import url(../blocks/element/__like/element__like.css);
 @import url(../blocks/element/__like/_active/element__like_active.css);
 @import url(../blocks/element/__delete/element__delete.css);
+@import url(../blocks/element/__like-number/element__like-number.css);
 @import url(../blocks/footer/footer.css);
 @import url(../blocks/footer/__text/footer__text.css);
 @import url(../blocks/popup/popup.css);
@@ -31,8 +32,10 @@
 @import url(../blocks/popup/__input/popup__input.css);
 @import url(../blocks/popup/__input/_type/_name/popup__input_type_name.css);
 @import url(../blocks/popup/__input/_type/_profession/popup__input_type_profession.css);
+@import url(../blocks//popup/__input/_type/_avatar-link/popup__input_type_avatar-link.css);
 @import url(../blocks/popup/__save/popup__save.css);
 @import url(../blocks/popup/__container/popup__container.css);
+@import url(../blocks/popup/__container-confirmation/popup__container-confirmation.css);
 @import url(../blocks/popup/__container/_avatar/popup__container_avatar.css);
 @import url(../blocks/popup/__closed/popup__closed.css);
 @import url(../blocks/popup/_visible/popup_visible.css);

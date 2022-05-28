@@ -1,99 +1,93 @@
-import {renderLoading} from '../pages/index.js'
-
 class Api {
-  constructor({baseUrl, headers}) {
+  constructor({ baseUrl, headers }) {
     this._headers = headers;
     this._baseUrl = baseUrl;
   }
 
   //проверка ответа от сервера
-  _errorHadler(res){ 
-    if(res.ok){
+  _checkReponse(res) {
+    if (res.ok) {
       return res.json();
     }
-    return Promise.reject(res.status)
+    return Promise.reject(res.status);
   }
 
   //получение данных профиля
-  getProfile(){ 
+  getProfile() {
     return fetch(`${this._baseUrl}/users/me`, {
-      headers: this._headers
-    })
-    .then(this._errorHadler)
+      headers: this._headers,
+    }).then(this._checkReponse);
   }
-  
+
   //получение карточек
-  getInitialCards() { 
+  getInitialCards() {
     return fetch(`${this._baseUrl}/cards`, {
-      headers: this._headers
-    })
-    .then(this._errorHadler)
+      headers: this._headers,
+    }).then(this._checkReponse);
   }
 
   //редактирование профиля
-  editProfile(name, about) { 
+  editProfile(name, about) {
     return fetch(`${this._baseUrl}/users/me`, {
       method: "PATCH",
       headers: this._headers,
       body: JSON.stringify({
         name,
-        about
-      })
-    })
-    .then(this._errorHadler)
+        about,
+      }),
+    }).then(this._checkReponse);
   }
 
   //добавление новой карточки
-  addNewCard(name, link) { 
+  addNewCard(name, link) {
     return fetch(`${this._baseUrl}/cards`, {
       method: "POST",
       headers: this._headers,
       body: JSON.stringify({
         name,
-        link
-      })
-    })
-    .then(this._errorHadler)
+        link,
+      }),
+    }).then(this._checkReponse);
   }
 
-  deleteCard(id) { //удаление карточки
+  deleteCard(id) {
+    //удаление карточки
     return fetch(`${this._baseUrl}/cards/${id}`, {
       method: "DELETE",
-      headers: this._headers
-    })
-    .then(this._errorHadler)
+      headers: this._headers,
+    }).then(this._checkReponse);
   }
 
-  putLike(id) { //постановка лайка
+  putLike(id) {
+    //постановка лайка
     return fetch(`${this._baseUrl}/cards/${id}/likes`, {
       method: "PUT",
-      headers: this._headers
-    })
-    .then(this._errorHadler)
+      headers: this._headers,
+    }).then(this._checkReponse);
   }
 
-  deleteLike(id) { //удаление лайка
+  deleteLike(id) {
+    //удаление лайка
     return fetch(`${this._baseUrl}/cards/${id}/likes`, {
       method: "DELETE",
-      headers: this._headers
-    })
-    .then(this._errorHadler)
+      headers: this._headers,
+    }).then(this._checkReponse);
   }
 
-  changeAvatar(avatar) { //редактирование аватара
+  changeAvatar(avatar) {
+    //редактирование аватара
     return fetch(`${this._baseUrl}/users/me/avatar`, {
       method: "PATCH",
       headers: this._headers,
-      body: JSON.stringify({avatar})
-    })
-    .then(this._errorHadler)
+      body: JSON.stringify({ avatar }),
+    }).then(this._checkReponse);
   }
 }
-  
-  export const api = new Api({
-    baseUrl: 'https://mesto.nomoreparties.co/v1/cohort-41',
-    headers: {
-      authorization: 'bd9d59c4-e0ff-4259-a84f-b978a98d9164',
-      'Content-Type': 'application/json'
-    }
-  });
+
+export const api = new Api({
+  baseUrl: "https://mesto.nomoreparties.co/v1/cohort-41",
+  headers: {
+    authorization: "bd9d59c4-e0ff-4259-a84f-b978a98d9164",
+    "Content-Type": "application/json",
+  },
+});

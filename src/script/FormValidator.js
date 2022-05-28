@@ -74,12 +74,12 @@ export class FormValidator{
       });
   };
 
-  enableValidation(formElement, rest) {
+  enableValidation() {
       this._form.addEventListener('submit', (evt) => {
           evt.preventDefault();
       });
 
-      this._setEventListeners(formElement, rest);
+      this._setEventListeners();
   }
 
 }

@@ -1,5 +1,6 @@
 .popup{
-    display: none;
+    display: flex;
+    visibility: hidden;
     justify-content: center;
     align-items: center;
     position: fixed;
@@ -9,4 +10,6 @@
     bottom: 0;
     z-index: 2;
     background-color: rgba(0, 0, 0, 0.5);
+    transition: all .4s ease;
+    opacity: 0;
 }

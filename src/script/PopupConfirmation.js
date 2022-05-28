@@ -1,27 +1,26 @@
 import { Popup } from "./Popup.js";
 
-export class PopupConfirmation extends Popup{
-    constructor(popupSelector){ 
-        super(popupSelector);
-        this._form = this._popupSelector.querySelector('.popup__form');
-      }
-  
-      setFormSubmitHandler(handler) {
-        this.setFormSubmitHandler = handler;
-    }
-  
-      close() {
-        super.close();
-        this._form.reset()
-      }
-  
-      setEventListeners() {
-        super.setEventListeners();
-  
-        this._form.addEventListener('submit',(evt) => {
-          evt.preventDefault();
-          this.setFormSubmitHandler();
-          this.close();
-        })
-      }
-    }
+export class PopupConfirmation extends Popup {
+  constructor(popup) {
+    super(popup);
+    this._form = this._popup.querySelector(".popup__form");
+  }
+
+  setFormSubmitHandler(handler) {
+    this._handleFormSubmit = handler;
+  }
+
+  close() {
+    super.close();
+    this._form.reset();
+  }
+
+  setEventListeners() {
+    super.setEventListeners();
+
+    this._form.addEventListener("submit", (evt) => {
+      evt.preventDefault();
+      this._handleFormSubmit();
+    });
+  }
+}

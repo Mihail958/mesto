@@ -1,4 +1,4 @@
-.profile__avatar_change{
+.profile__avatar-change{
     position: absolute;
     width: 26px;
     height: 26px;
@@ -10,7 +10,7 @@
     cursor: default;
 }
 
-.profile__avatar_change:hover{
+.profile__avatar-change:hover{
     opacity: .8;
     cursor: pointer;
     background-color:black;

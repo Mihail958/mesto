@@ -14,6 +14,7 @@ export class Section {
 
 //перебор массива
   renderItems(items){
-    this._initialCards.forEach(item => this._renderer(item));
+    items.forEach(item => this._renderer(item));
   }
+
 }

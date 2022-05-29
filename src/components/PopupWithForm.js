@@ -29,13 +29,9 @@ export class PopupWithForm extends Popup {
 
   renderLoading(loading) {
     if (loading) {
-      Array.from(this._buttonsSave).forEach((submit) => {
-        submit.textContent = "Сохранение...";
-      });
+      this._buttonsSave.textContent = 'Сохранение...';
     } else {
-      Array.from(this._buttonsSave).forEach((submit) => {
-        submit.textContent = "Сохранить";
-      });
+      this._buttonsSave.textContent = 'Сохранить';
     }
   }
 
@@ -45,7 +41,6 @@ export class PopupWithForm extends Popup {
     this._form.addEventListener("submit", (evt) => {
       evt.preventDefault();
       this._handleFormSubmit(this._getInputValues());
-      //this.close();
     });
   }
 }

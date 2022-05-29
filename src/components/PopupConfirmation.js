@@ -10,11 +10,6 @@ export class PopupConfirmation extends Popup {
     this._handleFormSubmit = handler;
   }
 
-  close() {
-    super.close();
-    this._form.reset();
-  }
-
   setEventListeners() {
     super.setEventListeners();
 

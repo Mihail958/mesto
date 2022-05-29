@@ -1,12 +1,12 @@
-import { FormValidator } from "../script/FormValidator.js";
-import { validationSettings } from "../script/constants.js";
-import { Card } from "../script/Card.js";
-import { Section } from "../script/Section.js";
-import { PopupWithImage } from "../script/PopupWithImage.js";
-import { PopupWithForm } from "../script/PopupWithForm.js";
-import { PopupConfirmation } from "../script/PopupConfirmation";
-import { UserInfo } from "../script/UserInfo.js";
-import { api } from "../script/Api";
+import { FormValidator } from "../components/FormValidator.js";
+import { validationSettings } from "../utils/constants.js";
+import { Card } from "../components/Card.js";
+import { Section } from "../components/Section.js";
+import { PopupWithImage } from "../components/PopupWithImage.js";
+import { PopupWithForm } from "../components/PopupWithForm.js";
+import { PopupConfirmation } from "../components/PopupConfirmation";
+import { UserInfo } from "../components/UserInfo.js";
+import { api } from "../components/Api";
 import "../pages/index.css";
 
 //переменные
@@ -88,13 +88,11 @@ const user = new UserInfo({
 //попап изменения информации
 const popupProfileChange = new PopupWithForm(".popup_type_profile-edit", {
   handleFormSubmit: (data) => {
-    console.log("data_proverka", data);
     popupProfileChange.renderLoading(true);
     api
       .editProfile(data.name, data.job)
       .then((res) => {
         user.setUserInfo(res.name, res.about, res.avatar);
-        console.log("res_proverka", res);
         popupProfileChange.close();
       })
       .catch(console.log)
@@ -107,13 +105,10 @@ const popupProfileChange = new PopupWithForm(".popup_type_profile-edit", {
 //попап аватара
 const popupAvatarChange = new PopupWithForm(".popup_type_change-avatar", {
   handleFormSubmit: (data) => {
-    console.log("data.name_avatar", data.name);
-    console.log("data_avatar", data);
     popupAvatarChange.renderLoading(true);
     api
       .changeAvatar(data.avatar)
       .then((res) => {
-        console.log("res_avatar", res);
         user.setUserInfo(res.name, res.about, res.avatar);
         popupAvatarChange.close();
       })
